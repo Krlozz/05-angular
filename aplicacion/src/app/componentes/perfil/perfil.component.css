@@ -1,0 +1,16 @@
+.perfil {
+  color: #3b3b3b;
+  border-color: #3b3b3b;
+  text-align: center;
+  cursor: pointer;
+}
+
+.perfil:hover {
+  color: #d9d9d9;
+  border-color: #d9d9d9;
+}
+
+img {
+  border-style: solid;
+  border-width: 2px;
+}
