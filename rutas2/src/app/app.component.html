@@ -24,7 +24,18 @@
 
 <div class="row">
   <div class="col-sm-4">
-    MENU
+    <h1>MENU</h1>
+    <ul>
+      <li>
+        <a [routerLink]="['/home']">Home</a>
+      </li>
+      <li>
+        <a [routerLink]="['/FAQ']">FAQ</a>
+      </li>
+      <li>
+        <a [routerLink]="['/404']">No Encontrado</a>
+      </li>
+    </ul>
   </div>
   <div class="col-sm-8">
     <router-outlet></router-outlet>
@@ -32,6 +43,6 @@
 
 </div>
 
-<button class="boton"> Boton </button>
+<button class="boton" (click)="irAPerfilUsuario()"> Boton </button>
 <p class="texto"> FOOTER </p>
 
