@@ -15,9 +15,15 @@ export const ARREGLO_RUTAS: Routes = [
         path: 'perfil',
         component: RutaPerfilComponent
       },
+      //ruta con parámetro
       {
-        path: 'usuario',
+        path: 'usuario/:usuarioId/u/:universidadId',
         component: RutaUsuarioComponent
+      },
+      {
+        path: '',
+        redirectTo: 'perfil',
+        pathMatch: 'full'
       }
     ]
   },
