@@ -1,0 +1,133 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<!--
+<div style="text-align:center">
+  <h1>
+    Welcome to {{ title }}!
+  </h1>
+  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
+</div>
+<h2>Here are some links to help you start: </h2>
+<ul>
+  <li>
+    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
+  </li>
+  <li>
+    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
+  </li>
+  <li>
+    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
+  </li>
+</ul>
+-->
+<div class="container">
+  <h1> variable de template #</h1>
+
+  <form
+    (ngSubmit)="crearUsuario(formualarioUsuario)"
+    #formualarioUsuario="ngForm"
+  >
+
+    <h4>Estados del formulario</h4>
+    <pre>
+
+      valid: {{formularioUsuario.valid}}
+      invalid: {{formularioUsuario.invalid}}
+      dirty: {{formularioUsuario.dirty}}
+      pristine: {{formularioUsuario.pristine}}
+      touched: {{formularioUsuario.touched}}
+      untouched: {{formularioUsuario.untouched}}
+
+    </pre>
+
+    <h4>Errores del formulario</h4>
+    <pre>
+
+      Errores: {{formularioUsuario.errors}}
+
+    </pre>
+
+    <div class="form-group">
+      <label for="exampleInputEmail1">Email address</label>
+      <input type="email"
+             class="form-control"
+             id="exampleInputEmail1"
+             aria-describedby="emailHelp"
+             placeholder="Enter email"
+             [(ngModel)]="email"
+             name="email"
+             required
+             minlength="3"
+             pattern="[^@]+@[^@]+\.[a-zA-Z]{2,6}"
+             #emailCampo="ngModel"
+      >
+
+      <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+
+      <div
+        class="alert alert-warning"
+        role="alert"
+        *ngIf="emailCampo.errors!==null && emailCampo.dirty===true"
+      >
+        <p *ngIf="emailCampo.errors.required">Este campo es requerido</p>
+        <p *ngIf="emailCampo.errors.minlength">No puede tener menos de 3 carácteres</p>
+        <p *ngIf="emailCampo.errors.pattern">Debe de ser un correo válido</p>
+
+      </div>
+
+      <h5>Estados del campo</h5>
+      <pre>
+        valid: {{emailCampo.valid}}
+        invalid: {{emailCampo.invalid}}
+        dirty: {{emailCampo.dirty}}
+        pristine: {{emailCampo.pristine}}
+        touched: {{emailCampo.touched}}
+        untouched: {{emailCampo.untouched}}
+
+      </pre>
+      <h5>Errores del campo</h5>
+      <pre>
+
+        Errores: {{emailCampo.errors | json}}
+
+    </pre>
+    </div>
+
+    <div class="form-group">
+      <label for="exampleInputPassword1">Password</label>
+      <input
+        type="password"
+        class="form-control"
+        id="exampleInputPassword1"
+        placeholder="Password"
+        [(ngModel)]="password"
+        name="password"
+        required
+
+      >
+    </div>
+
+    <div class="form-group">
+      <label for="exampleInputPassword2">Password confirmation</label>
+      <input
+        type="password"
+        class="form-control"
+        id="exampleInputPassword2"
+        placeholder="Password confirmation"
+        [(ngModel)]="passwordConfirmation"
+        name="passwordConfirmation"
+        required
+        #passwordCampo="ngModel"
+        minlength="6"
+      >
+    </div>
+
+
+    <button
+      [disabled]="formualarioUsuario.invalid"
+      type="submit"
+      class="btn btn-primary">Submit</button>
+  </form>
+
+</div>
+
+
